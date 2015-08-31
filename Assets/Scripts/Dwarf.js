@@ -18,7 +18,7 @@ public class Dwarf
 
 	public function Dwarf ()
 	{
-		Debug.Log("Dwarf: Hi there, I'm your dwarf!");
+//		Debug.Log("Dwarf: Hi there, I'm your dwarf!");
 	}
 	
 	public function Step ()
@@ -48,14 +48,14 @@ public class Dwarf
 	
 	public function Speed (milliseconds : float)
 	{
-		this.speed = milliseconds * 10000;
+		this.speed = milliseconds * 1000;
 		return this;
 	}
 
 	public function NextWorkItem ()
 	{
 		workStepCount++;
-		Debug.Log("Dwarf: working... doodeedoo");
+//		Debug.Log("Dwarf: working... doodeedoo");
 		this.direction.RandomTurn(6);
 		this.Dig();
 		return this;
@@ -64,20 +64,28 @@ public class Dwarf
 	public function Dig () : Dwarf
 	{
 		var coord : Coord = new Coord(this.room.coord);
-		Debug.Log("From " + coord.address());
 		coord.Move(this.direction, 1);
-		Debug.Log("To " + coord.address());
 		var existingRoom = dungeon.getRoom(coord);
 		if (existingRoom == null)
 		{
 			// If the coordinate if free, dig a new room
 			var room : Room = new Room(coord);
 			dungeon.AddRoom(room);
+			this.room.OpenDoorTo(room);
+			room.OpenDoorTo(this.room);
+
+			room.touch();
+			this.room.touch();
+
 			this.room = room;
 			Debug.Log("Dwarf: Dug a new room in " + room.coord.address());  
 		} else {
 			Debug.Log("Dwarf: Room already exists, moving along to " + existingRoom.coord.address());  
 			// If room already exists at this coordinate, move into that room
+			this.room.OpenDoorTo(existingRoom);
+			existingRoom.OpenDoorTo(this.room);
+			existingRoom.touch();
+			this.room.touch();
 			this.room = existingRoom;
 		}
 		return this;
@@ -100,9 +108,8 @@ public class Dwarf
 				Debug.Log("Dwarf: Can't find dungeon entrance!");
 				CreateFirstRoom(); //
 			}
-			Debug.Log("Dwarf: Entered dungeon!");
 			this.room = this.dungeon.entrance;
-			Debug.Log("@" + this.room.coord.x + "." + this.room.coord.y);
+			Debug.Log("Dwarf: Entered dungeon at " + this.room.coord.address());
 		}
 		else
 		{

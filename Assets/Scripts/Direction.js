@@ -5,6 +5,15 @@ public class Direction
 {
 	var direction : int = 0;
 
+	public function Direction(dir : int)
+	{
+		direction = dir;
+	}
+
+	public function Direction()
+	{
+	}
+
 	public function Reverse () : Direction
 	{
 		if (direction == 0)

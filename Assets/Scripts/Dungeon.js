@@ -2,16 +2,14 @@
 
 public class Dungeon
 {
-	public var rooms : Array;
+	public var rooms : Array = new Array();
 	public var entrance : Room = null;
 
 	var _onRoomCreate : Function = null;
 	var _onRoomUpdate : Function = null;
 
-		public function Dungeon ()
+	public function Dungeon ()
 	{
-		Debug.Log("Dungeon started");
-		this.rooms = new Array();
 	}
 
 	public function onRoomCreate(f : Function) {
@@ -50,7 +48,8 @@ public class Dungeon
 		//todo: only accept room if it doesnt already exist at that coord
 		if (room != null)
 		{
-			rooms.Add(room);
+			room.dungeon = this;
+			rooms.Push(room);
 			onRoomCreate(room);
 		}
 	}
@@ -65,17 +64,6 @@ public class Dungeon
 	}
 }
 
-public class Room
-{
-	public var coord : Coord;
-	
-	public function Room (coord)
-	{
-		this.coord = new Coord(coord);
-		// todo: broadcast roomCreated message
-	}
-	
-}
 
 
 

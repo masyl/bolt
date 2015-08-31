@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 41a5249917b4a4057b446ddf58ba37e5
-timeCreated: 1440960732
+timeCreated: 1441024298
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,180 +88,180 @@ TextureImporter:
     - name: minimap_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 360
-        width: 180
-        height: 180
+        x: 3
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 360
-        width: 180
-        height: 180
+        x: 183
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_2
       rect:
         serializedVersion: 2
-        x: 361
-        y: 360
-        width: 180
-        height: 180
+        x: 363
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_3
       rect:
         serializedVersion: 2
-        x: 541
-        y: 359
-        width: 180
-        height: 180
+        x: 543
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_4
       rect:
         serializedVersion: 2
-        x: 720
-        y: 359
-        width: 180
-        height: 180
+        x: 723
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_5
       rect:
         serializedVersion: 2
-        x: 900
-        y: 360
-        width: 180
-        height: 180
+        x: 903
+        y: 363
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 180
-        width: 180
-        height: 180
+        x: 3
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_7
       rect:
         serializedVersion: 2
-        x: 180
-        y: 180
-        width: 180
-        height: 180
+        x: 183
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_8
       rect:
         serializedVersion: 2
-        x: 360
-        y: 180
-        width: 180
-        height: 180
+        x: 363
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_9
       rect:
         serializedVersion: 2
-        x: 540
-        y: 180
-        width: 180
-        height: 180
+        x: 543
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_10
       rect:
         serializedVersion: 2
-        x: 720
-        y: 180
-        width: 180
-        height: 180
+        x: 723
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_11
       rect:
         serializedVersion: 2
-        x: 900
-        y: 180
-        width: 180
-        height: 180
+        x: 903
+        y: 183
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 180
-        height: 180
+        x: 3
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_13
       rect:
         serializedVersion: 2
-        x: 180
-        y: 0
-        width: 180
-        height: 180
+        x: 183
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_14
       rect:
         serializedVersion: 2
-        x: 360
-        y: 0
-        width: 180
-        height: 180
+        x: 363
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_15
       rect:
         serializedVersion: 2
-        x: 540
-        y: 0
-        width: 180
-        height: 180
+        x: 543
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_16
       rect:
         serializedVersion: 2
-        x: 720
-        y: 0
-        width: 180
-        height: 180
+        x: 723
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: minimap_17
       rect:
         serializedVersion: 2
-        x: 900
-        y: 0
-        width: 180
-        height: 180
+        x: 903
+        y: 3
+        width: 174
+        height: 174
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
