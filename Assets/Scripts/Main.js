@@ -7,8 +7,6 @@ Consider using MessageRouter http://wiki.unity3d.com/index.php/MessageRouter
 @System.NonSerialized
 var dungeon : Dungeon = null;
 var dwarf : Dwarf = null;
-var dwarf2 : Dwarf = null;
-var dwarf3 : Dwarf = null;
 
 var MinimapRoom : GameObject;
 
@@ -19,38 +17,40 @@ function Start ()
 	//	GameObject.Find("soundtrack").GetComponent(AudioSource).Play();
 	dungeon = new Dungeon();	
 	dwarf = new Dwarf();
-	dwarf2 = new Dwarf();
-	dwarf3 = new Dwarf();
 
 	dungeon.onRoomCreate(onRoomCreated); // Register room creation handler
 	dungeon.onRoomUpdate(onRoomUpdated); // Register room update handler
 
 	var dungeonPlan : DungeonPlan = new DungeonPlan();
-	dungeonPlan.maxRoomCount = 300;
-	var speed = 1;
+	dungeonPlan.maxRoomCount = 30;
+	var speed = 20;
 	dwarf
 		.Speed(speed)
 		.UsePlan(dungeonPlan)
 		.Enter(this.dungeon);
 
-	dwarf2
-		.Speed(speed)
-		.UsePlan(dungeonPlan)
-		.Enter(this.dungeon);
-
-	dwarf3
-		.Speed(speed)
-		.UsePlan(dungeonPlan)
-		.Enter(this.dungeon);
-		
 		
 }
 
 function Update ()
 {
+	if (Input.GetKeyUp(KeyCode.Escape)) ResetDungeon();
+	if (Input.GetKeyUp(KeyCode.Equals)) ZoomCamera(0.5);
+	if (Input.GetKeyUp(KeyCode.Plus)) ZoomCamera(0.5);
+	if (Input.GetKeyUp(KeyCode.Minus)) ZoomCamera(2);
 	dwarf.Step();
-	dwarf2.Step();
-	dwarf3.Step();
+}
+
+function ZoomCamera (ratio : float)
+{
+	Debug.Log("Zooming camera! " + ratio);
+	var cam : Camera = GameObject.Find("MainCamera").GetComponent(Camera);
+	cam.orthographicSize = cam.orthographicSize * ratio;
+}
+
+function ResetDungeon ()
+{
+	Debug.Log("ResetDungeon!!!");
 }
 
 function onRoomUpdated(room : Room)
@@ -60,7 +60,6 @@ function onRoomUpdated(room : Room)
 	var sprite : GameObject = GameObject.Find(roomID);
 	var signature : String = room.getDoorsSignature();
 	var newSprite : String;
-	Debug.Log("SIGNATURE -----------" + signature);
 	var num : int;
 	num = 17;
 	switch (signature)
@@ -124,19 +123,13 @@ function onRoomCreated(room : Room)
 	var roomID = "room:" + room.coord.address();
 	var roomSprite : GameObject = Instantiate(MinimapRoom);
 	var signature = room.getDoorsSignature();
-//	Debug.Log("SIGNATURE ----------- " + signature);
 	roomSprite.name = roomID;
 	var scale : float = 68;
 	roomSprite.transform.position.x = parseFloat(room.coord.x) * scale;
 	roomSprite.transform.position.y = parseFloat(room.coord.y) * scale;
-//	var MinimapRooms : GameObject = GameObject.Find("MinimapRooms");
 	var MinimapRooms : GameObject = GameObject.Find("Canvas");
 	roomSprite.transform.SetParent(MinimapRooms.transform);
 //	Debug.Log("UI : Adding sprite : " + roomID);
-}
-
-function DrawRoom(room : Room)
-{
 }
 
 

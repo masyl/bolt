@@ -32,7 +32,6 @@ public class Room
 	{
 		for (var door:Door in doors)
 		{
-//			Debug.Log("DOOOOOOOOOOR ALREADY EXISTS !!!!!!!!");
 			if (door.destination == room) return door;
 		}
 		return null;
@@ -54,7 +53,6 @@ public class Room
 		var signature = "";
 		var door : Door;
 		var dir = new Direction(0);
-		Debug.Log(dir.dir());
 		door = findDoorInDirection(dir);
 		if (door!=null) {
 			signature = signature + "1";
@@ -63,7 +61,6 @@ public class Room
 		}
 
 		dir.Right();
-		Debug.Log(dir.dir());
 		door = findDoorInDirection(dir);
 		if (door!=null) {
 			signature = signature + "1";
@@ -72,7 +69,6 @@ public class Room
 		}
 
 		dir.Right();
-		Debug.Log(dir.dir());
 		door = findDoorInDirection(dir);
 		if (door!=null) {
 			signature = signature + "1";
@@ -81,7 +77,6 @@ public class Room
 		}
 
 		dir.Right();
-		Debug.Log(dir.dir());
 		door = findDoorInDirection(dir);
 		if (door!=null) {
 			signature = signature + "1";
