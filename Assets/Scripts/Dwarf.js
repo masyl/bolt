@@ -6,7 +6,9 @@
  
 public class Dwarf
 {
+	@System.NonSerialized
 	public var room : Room = null;
+
 	public var dungeon : Dungeon = null;
 	public var speed : float = 0;
 	public var dungeonPlan : DungeonPlan = null;

@@ -2,27 +2,39 @@
 
 public class Room
 {
-	public var coord : Coord = null;
-	public var doors : Array = [];
+	public var coord : Coord;
 	@System.NonSerialized
-	public var dungeon : Dungeon = null;
+	public var doors : Array;
+	@System.NonSerialized
+	public var dungeon : Dungeon;
+
+	@System.NonSerialized
+	private var test : String = "test";
 	
 	public function Room (coord : Coord)
 	{
+		this.doors = new Array();
 		this.coord = new Coord(coord);
+		dungeon = null;
 		// todo: broadcast roomCreated message
+		Debug.Log("WTF!");
+		test = "test";
+		Debug.Log("test = " + test);
 	}
 	
 	public function touch ()
 	{
 		dungeon.onRoomUpdate(this);
 	}
-	
+
 	public function OpenDoorTo (room : Room) : Door
 	{
 		var door : Door = findDoorToRoom(room);
 		if (door != null) return door;
 		door = new Door(room);
+		Debug.Log("IsNull = " + (this.doors == null));
+		Debug.Log("doors = " + this.doors);
+		Debug.Log("test = " + test);
 		this.doors.Push(door);
 		Debug.Log("Dungeon: Door openned from " + this.coord.address() + " to " + room.coord.address() + " for a total of " + this.doors.length);
 		return door;
@@ -87,15 +99,5 @@ public class Room
 		return signature;
 	}
 	
-}
-
-public class Door
-{
-	public var destination : Room = null;
-	
-	public function Door(room : Room)
-	{
-		destination = room;
-	}
 }
 
