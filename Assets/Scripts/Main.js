@@ -126,9 +126,12 @@ function onRoomCreated(room : Room)
 	var signature = room.getDoorsSignature();
 //	Debug.Log("SIGNATURE ----------- " + signature);
 	roomSprite.name = roomID;
-	var scale : float = 1.70;
+	var scale : float = 68;
 	roomSprite.transform.position.x = parseFloat(room.coord.x) * scale;
 	roomSprite.transform.position.y = parseFloat(room.coord.y) * scale;
+//	var MinimapRooms : GameObject = GameObject.Find("MinimapRooms");
+	var MinimapRooms : GameObject = GameObject.Find("Canvas");
+	roomSprite.transform.SetParent(MinimapRooms.transform);
 //	Debug.Log("UI : Adding sprite : " + roomID);
 }
 
