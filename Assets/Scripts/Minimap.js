@@ -1,7 +1,10 @@
 ﻿#pragma strict
 
 var RoomSprite : GameObject;
-
+var MovableLayer : GameObject;
+var MaskLayer : GameObject;
+var scale : float = 1;
+var cameraScaleOffset : float = 100;
 function Start () {
 	Debug.Log("Minimap started!");
 
@@ -81,13 +84,25 @@ public function onRoomCreated(room : Room)
 {
 	var roomID = "room:" + room.coord.address();
 	var roomSprite : GameObject = Instantiate(RoomSprite);
-	var signature = room.getDoorsSignature();
 	roomSprite.name = roomID;
-	var scale : float = 68;
-	roomSprite.transform.position.x = parseFloat(room.coord.x) * scale;
-	roomSprite.transform.position.y = parseFloat(room.coord.y) * scale;
-	var MinimapRooms : GameObject = GameObject.Find("Canvas");
-	roomSprite.transform.SetParent(MinimapRooms.transform);
+//	Debug.Log("P : " + roomSprite.transform.localPosition);
+//	Debug.Log("P : " + MovableLayer.transform.position);
+	roomSprite.transform.SetParent(MovableLayer.transform);
+	roomSprite.transform.localPosition = MovableLayer.transform.position;
+
+var spriteMask : SpriteMask = MaskLayer.GetComponent("SpriteMask");
+spriteMask.updateSprites(roomSprite.transform);
+
+//		spriteRenderer.transform.SetParent(spriteMask);
+//spriteMask.updateSprites(spriteRenderer.transform);
+	
+	roomSprite.transform.position.x = (parseFloat(room.coord.x) * scale * cameraScaleOffset) + MovableLayer.transform.position.x;
+	roomSprite.transform.position.y = (parseFloat(room.coord.y) * scale * cameraScaleOffset) + MovableLayer.transform.position.y;
+
+	var baseScale = 12;
+	roomSprite.transform.localScale.x = scale * baseScale;
+	roomSprite.transform.localScale.y = scale * baseScale;
+
 //	Debug.Log("UI : Adding sprite : " + roomID);
 }
 

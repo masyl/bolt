@@ -19,9 +19,13 @@ function Start ()
 
 	// Create the dungeon plans
 	var plan : DungeonPlan = new DungeonPlan();
-	plan.maxRoomCount = 30;
+	plan.maxRoomCount = 220;
 
 	// Add a dwarf to the team!
+	dwarfTeam.Add(plan);
+	dwarfTeam.Add(plan);
+	dwarfTeam.Add(plan);
+	dwarfTeam.Add(plan);
 	dwarfTeam.Add(plan);
 	dwarfTeam.Add(plan);
 

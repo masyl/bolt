@@ -58,7 +58,7 @@ public class Dwarf
 	{
 		workStepCount++;
 //		Debug.Log("Dwarf: working... doodeedoo");
-		this.direction.RandomTurn(1);
+		this.direction.RandomTurn(3);
 		this.Dig();
 		return this;
 	}
