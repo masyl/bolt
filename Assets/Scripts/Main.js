@@ -6,6 +6,7 @@ Consider using MessageRouter http://wiki.unity3d.com/index.php/MessageRouter
 */
 var dungeon : Dungeon;
 var dwarfTeam : DwarfTeam;
+var heroTeam : HeroTeam;
 var minimap : Minimap;
 var rooms : Rooms;
 
@@ -30,6 +31,8 @@ function Start ()
 	dwarfTeam.Add(plan);
 	dwarfTeam.Add(plan);
 
+	// Add a hero to the team!
+	heroTeam.Add();
 }
 
 function OnRoomCreated(room : Room)
