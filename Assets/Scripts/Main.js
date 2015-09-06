@@ -7,6 +7,7 @@ Consider using MessageRouter http://wiki.unity3d.com/index.php/MessageRouter
 var dungeon : Dungeon;
 var dwarfTeam : DwarfTeam;
 var minimap : Minimap;
+var rooms : Rooms;
 
 function Start ()
 {
@@ -14,8 +15,8 @@ function Start ()
 
 	// Bind the dungeon to the minimap events
 	// todo : Better way ?
-	dungeon.onRoomCreate(minimap.onRoomCreated); // Register room creation handler
-	dungeon.onRoomUpdate(minimap.onRoomUpdated); // Register room update handler
+	dungeon.onRoomCreate(OnRoomCreated); // Register room creation handler
+	dungeon.onRoomUpdate(OnRoomUpdated); // Register room update handler
 
 	// Create the dungeon plans
 	var plan : DungeonPlan = new DungeonPlan();
@@ -30,6 +31,21 @@ function Start ()
 	dwarfTeam.Add(plan);
 
 }
+
+function OnRoomCreated(room : Room)
+{
+	minimap.onRoomCreated(room);
+	rooms.onRoomCreated(room);
+
+}
+
+function OnRoomUpdated(room : Room)
+{
+	minimap.onRoomUpdated(room);
+	rooms.onRoomUpdated(room);
+
+}
+
 
 function Update ()
 {
