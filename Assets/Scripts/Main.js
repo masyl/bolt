@@ -27,12 +27,10 @@ function Start ()
 	dwarfTeam.Add(plan);
 	dwarfTeam.Add(plan);
 	dwarfTeam.Add(plan);
-	dwarfTeam.Add(plan);
-	dwarfTeam.Add(plan);
-	dwarfTeam.Add(plan);
 
 	// Add a hero to the team!
 	heroTeam.Add();
+
 }
 
 function OnRoomCreated(room : Room)

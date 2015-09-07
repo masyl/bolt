@@ -4,15 +4,17 @@
 var heroes : Array = new Array();
 var dungeon : Dungeon = null;
 var speed = 20;
+var HeroPrefab : GameObject = null;
 
 function Start () {
 }
 
 function Update ()
 {
-	for (var hero : Hero in heroes)
+	for (var hero : GameObject in heroes)
 	{
-		hero.Step();
+		var heroScript : Hero = hero.transform.GetComponent(Hero);
+		heroScript.Step();
 	}
 }
 
@@ -21,11 +23,14 @@ function Update ()
 */
 public function Add() : Hero
 {
-	var hero : Hero = new Hero();	
-	hero
-		.Speed(speed)
-		.Enter(dungeon);
+	var hero : GameObject = Instantiate(HeroPrefab);
 
+	var heroScript : Hero = hero.transform.GetComponent(Hero);
+
+	heroScript.Speed(speed);
+	heroScript.Enter(dungeon);
+
+	hero.transform.SetParent(gameObject.transform);
 	heroes.Push(hero);
 }
 
